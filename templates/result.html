@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generated PDFs</title>
+    <!-- Bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #e52e71, #ff8a00);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+      }
+      .card {
+        border: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card p-4">
+            <div class="card-body">
+              <h2 class="card-title text-center">Generated PDF Forms</h2>
+              <p class="text-center">Download the forms below:</p>
+              <ul class="list-group">
+                {% for pdf in pdf_paths %}
+                <li
+                  class="list-group-item d-flex justify-content-between align-items-center"
+                >
+                  Form {{ loop.index }}
+                  <a href="{{ pdf }}" class="btn btn-sm btn-primary" download
+                    >Download PDF</a
+                  >
+                </li>
+                {% endfor %}
+              </ul>
+              <div class="text-center mt-4">
+                <a href="/" class="btn btn-secondary">Generate More Forms</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
